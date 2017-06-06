@@ -625,8 +625,8 @@
     padding-bottom: 133.3333333333333%
 }
 .poster.orientation-portrait.size-18x24 .poster-border {
-    width: 2700px;
-    height: 3600px
+    width: 100%;
+    height: 100%;
 }
 .poster.orientation-portrait.size-18x24 .poster__paper:before {
     background: url("../images/map-bg/portrait_small_18x24.png") no-repeat center;

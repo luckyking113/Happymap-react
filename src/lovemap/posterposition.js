@@ -13,8 +13,8 @@ class Posterposition extends Component {
             </div>
             <div className="poster  borders-double orientation-portrait size-18x24">
                 <div className="poster__frame">
-                    <div className="poster-border">
-                        <div className="poster__paper">
+                    <div className="poster-border heart-shape">
+                        <div className="poster__paper ">
                             <div className="poster__map__wrap__row">
                                 <div className="poster__map__wrap">
                                     <div className="poster__map">
