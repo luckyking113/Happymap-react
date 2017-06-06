@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-// import Stepnavigation from './stepnavigation';
-
 import '../lovemap.css';
+import $ from 'jquery';
 
 
 class Customise extends Component { 
@@ -24,9 +23,9 @@ class Customise extends Component {
         return _.map(this.state.data, (datum, index) => {            
             return(
                 <div key={index} className="color-radio">
-                    <input type="radio" name="filter" />
+                    <input type="radio" name="filter" onChange={this.radioColor}/>
                     <label>
-                        <span>
+                        <span onClick={this.mapcolor}>
                             <img className={datum.stylename} src={`../images/map-styles/${datum.imgsrc}`} alt="" />
                         </span>
                     </label>
@@ -35,6 +34,64 @@ class Customise extends Component {
         });
     }
 
+    radioColor(e){
+        console.log(e.target.value);
+    }
+    mapcolor(e){
+        switch (e.target.className){
+            case 'style0':
+            {
+                // $("span").css("border-color","#93d4f7");
+                $(".heart-shape").addClass("heart-color0"); 
+                $(".heart-shape").removeClass("heart-color1");
+                $(".heart-shape").removeClass("heart-color2");
+                $(".heart-shape").removeClass("heart-color3");
+                $(".heart-shape").removeClass("heart-color4");
+                $(".heart-shape").removeClass("heart-color5");
+                
+                break;
+            }
+            case 'style1':
+            {                       
+                $(".heart-shape").addClass("heart-color1");
+                $(".heart-shape").removeClass("heart-color2");
+                $(".heart-shape").removeClass("heart-color3");
+                $(".heart-shape").removeClass("heart-color4");
+                $(".heart-shape").removeClass("heart-color5");  
+                break;
+            }
+            case 'style2':
+            {
+                $(".heart-shape").addClass("heart-color2"); 
+                $(".heart-shape").removeClass("heart-color3");
+                $(".heart-shape").removeClass("heart-color4");
+                $(".heart-shape").removeClass("heart-color5");  
+                break;
+            }
+            case 'style3':
+            {
+                $(".heart-shape").addClass("heart-color3");
+                $(".heart-shape").removeClass("heart-color4");
+                $(".heart-shape").removeClass("heart-color5");  
+                break; 
+            }
+            case 'style4':
+            {
+                $(".heart-shape").addClass("heart-color4");
+                $(".heart-shape").removeClass("heart-color5");
+                break; 
+            }
+            case 'style5':  
+            {
+                $(".heart-shape").addClass("heart-color5");
+                break; 
+            }
+            default:
+                break;
+            
+          
+        }
+    }
     render() {
         return (    
             <div className="toolbar-content">

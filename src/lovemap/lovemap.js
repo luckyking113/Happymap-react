@@ -10,8 +10,7 @@ import CheckoutLeft from './checkoutleft';
 import './lovemap.css';
 
 class Lovemap extends Component {
-  componentDidMount() {
-      console.log('Component DID MOUNT!');
+  componentDidMount() {      
       this.addLocation();
   }
 
@@ -71,6 +70,7 @@ class Lovemap extends Component {
       $(".nav-checkout").removeClass("active");
 
       $(".layout-item").addClass("active1"); 
+      $(".customize-item").addClass("active1"); 
 
       $(".social-block").addClass("layout-active");  
       $(".social-block").css("display", "inherit");

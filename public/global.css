@@ -8216,7 +8216,7 @@ input[type="checkbox"]:checked+label span {
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
-  background-color: rgba(250,184,66, 1);
+  background-color: rgba(245,97,97, 0.3); 
 }
 .heart-shape:before,
 .heart-shape:after{
@@ -8228,7 +8228,7 @@ input[type="checkbox"]:checked+label span {
   -moz-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
-  background-color: rgba(250,184,66, 1);
+  /*background-color: rgba(245,97,97, 1); */
 }
 .heart-shape:before{
   bottom: 0px;
@@ -8237,4 +8237,23 @@ input[type="checkbox"]:checked+label span {
 .heart-shape:after{
   top: -100px;
   right: 0px;
+}
+
+.heart-color0 {
+	background-color: rgba(245,97,97, 0.3); 
+}
+.heart-color1 {
+	background-color: rgba(115, 80, 161, 0.3);
+}
+.heart-color2{
+	background-color: rgba(19, 19, 19, 0.3);
+}
+.heart-color3{
+	background-color: rgba(81, 187, 133, 0.3);
+}
+.heart-color4{
+	background-color: rgba(250, 169, 27, 0.3);
+}
+.heart-color5{
+	background-color: rgba(2, 161, 209, 0.3);
 }
