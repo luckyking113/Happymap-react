@@ -59,21 +59,31 @@ class Layout extends Component {
             {
                 $(".poster").removeClass("borders-double");                
                 $(".poster").removeClass("borders-none");
-                $(".poster").addClass("borders-single");                
+                $(".poster").addClass("borders-single");   
+
+                $("#borders__single").attr('checked', true);
+                $("#borders__double").attr('checked', false);
+                $("#borders__none").attr('checked', false);             
                 break;
             } 
             case 'borders__double': 
             {
                 $(".poster").removeClass("borders-single");  
                 $(".poster").addClass("borders-double");                
-                $(".poster").removeClass("borders-none");                
+                $(".poster").removeClass("borders-none"); 
+                $("#borders__single").attr('checked', false);
+                $("#borders__double").attr('checked', true);
+                $("#borders__none").attr('checked', false);                  
                 break;
             } 
             default:
             {
                 $(".poster").removeClass("borders-single");  
                 $(".poster").removeClass("borders-double");                
-                $(".poster").addClass("borders-none");    
+                $(".poster").addClass("borders-none");  
+                $("#borders__single").attr('checked', false);
+                $("#borders__double").attr('checked', false);
+                $("#borders__none").attr('checked', true);   
                 break;
             } 
 
@@ -86,6 +96,9 @@ class Layout extends Component {
                 $(".poster").addClass("size-8x10");
                 $(".poster").removeClass("size-12x16");
                 $(".poster").removeClass("size-18x24");
+                $("#size__8x10").attr('checked', true);
+                $("#size__12x16").attr('checked', false);
+                $("#size__18x24").attr('checked', false); 
                 break;
             } 
             case 'class2': 
@@ -93,6 +106,9 @@ class Layout extends Component {
                 $(".poster").removeClass("size-8x10");
                 $(".poster").addClass("size-12x16");
                 $(".poster").removeClass("size-18x24");
+                $("#size__8x10").attr('checked', false);
+                $("#size__12x16").attr('checked', true);
+                $("#size__18x24").attr('checked', false); 
                 break;
             } 
             case 'class3':
@@ -100,11 +116,25 @@ class Layout extends Component {
                 $(".poster").removeClass("size-8x10");
                 $(".poster").removeClass("size-12x16");
                 $(".poster").addClass("size-18x24");
+                $("#size__8x10").attr('checked', false);
+                $("#size__12x16").attr('checked', false);
+                $("#size__18x24").attr('checked', true); 
                 break;
             } 
             default:
             break; 
         }
+    }
+    portrait(){
+        $(".poster").addClass("orientation-portrait");
+        $(".poster").removeClass("orientation-landscape");         
+        console.log("portrait");
+    }
+    landscape(){
+        $(".poster").addClass("orientation-landscape"); 
+        $(".poster").removeClass("orientation-portrait");
+        // $(".poster-border").addClass("orientation-landscape");
+        console.log("landscape");
     }
     render() {
         return (
@@ -124,14 +154,14 @@ class Layout extends Component {
                             <div className="option-radio option-radio-portrait">
                                 <input type="radio" id="orientation__portrait" name="orientation" value="portrait" />                                
                                 <label>
-                                    <span className="option-radio-img"><img src="../images/layout-portrait.png" alt="" /></span>
+                                    <span className="option-radio-img" onClick={this.portrait}><img src="../images/layout-portrait.png" alt="" /></span>
                                     <span className="option-radio-txt">Portrait </span>
                                 </label>
                             </div>
                             <div className="option-radio option-radio-landscape">
                                 <input type="radio" id="orientation__landscape" name="orientation" value="landscape" />
                                 <label>
-                                    <span className="option-radio-img"><img src="../images/layout-portrait.png" alt="" /></span>
+                                    <span className="option-radio-img" onClick={this.landscape}><img src="../images/layout-portrait.png" alt="" /></span>
                                     <span className="option-radio-txt">Landscape </span>
                                 </label>
                             </div>

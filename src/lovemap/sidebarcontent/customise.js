@@ -9,12 +9,12 @@ class Customise extends Component {
         super();		
         this.state = {
             data: [
-                {"stylename": "style0", "imgsrc":"1.png"}, 
-                {"stylename": "style1", "imgsrc":"2.png"},
-                {"stylename": "style2", "imgsrc":"3.png"},
-                {"stylename": "style3", "imgsrc":"4.png"},
-                {"stylename": "style4", "imgsrc":"5.png"},
-                {"stylename": "style5", "imgsrc":"6.png"}
+                {"id":"radio1", "stylename": "style0", "imgsrc":"1.png"}, 
+                {"id":"radio2", "stylename": "style1", "imgsrc":"2.png"},
+                {"id":"radio3", "stylename": "style2", "imgsrc":"3.png"},
+                {"id":"radio4", "stylename": "style3", "imgsrc":"4.png"},
+                {"id":"radio5", "stylename": "style4", "imgsrc":"5.png"},
+                {"id":"radio6", "stylename": "style5", "imgsrc":"6.png"}
             ]
         }
     }
@@ -23,7 +23,7 @@ class Customise extends Component {
         return _.map(this.state.data, (datum, index) => {            
             return(
                 <div key={index} className="color-radio">
-                    <input type="radio" name="filter" onChange={this.radioColor}/>
+                    <input id={datum.id} type="radio" name="filter" onChange={this.radioColor}/>
                     <label>
                         <span onClick={this.mapcolor}>
                             <img className={datum.stylename} src={`../images/map-styles/${datum.imgsrc}`} alt="" />
@@ -35,7 +35,7 @@ class Customise extends Component {
     }
 
     radioColor(e){
-        console.log(e.target.value);
+        console.log(e.target.id);
     }
     mapcolor(e){
         switch (e.target.className){
@@ -48,7 +48,16 @@ class Customise extends Component {
                 $(".heart-shape").removeClass("heart-color3");
                 $(".heart-shape").removeClass("heart-color4");
                 $(".heart-shape").removeClass("heart-color5");
-                
+
+                $("#radio1").attr('checked', true);
+                $("#radio2").attr('checked', false);
+                $("#radio3").attr('checked', false);
+                $("#radio4").attr('checked', false);
+                $("#radio5").attr('checked', false);
+                $("#radio6").attr('checked', false);
+
+
+
                 break;
             }
             case 'style1':
@@ -58,6 +67,13 @@ class Customise extends Component {
                 $(".heart-shape").removeClass("heart-color3");
                 $(".heart-shape").removeClass("heart-color4");
                 $(".heart-shape").removeClass("heart-color5");  
+                
+                $("#radio1").attr('checked', false);
+                $("#radio2").attr('checked', true);
+                $("#radio3").attr('checked', false);
+                $("#radio4").attr('checked', false);
+                $("#radio5").attr('checked', false);
+                $("#radio6").attr('checked', false);
                 break;
             }
             case 'style2':
@@ -66,6 +82,12 @@ class Customise extends Component {
                 $(".heart-shape").removeClass("heart-color3");
                 $(".heart-shape").removeClass("heart-color4");
                 $(".heart-shape").removeClass("heart-color5");  
+                $("#radio1").attr('checked', false);
+                $("#radio2").attr('checked', false);
+                $("#radio3").attr('checked', true);
+                $("#radio4").attr('checked', false);
+                $("#radio5").attr('checked', false);
+                $("#radio6").attr('checked', false);
                 break;
             }
             case 'style3':
@@ -73,17 +95,38 @@ class Customise extends Component {
                 $(".heart-shape").addClass("heart-color3");
                 $(".heart-shape").removeClass("heart-color4");
                 $(".heart-shape").removeClass("heart-color5");  
+
+                $("#radio1").attr('checked', false);
+                $("#radio2").attr('checked', false);
+                $("#radio3").attr('checked', false);
+                $("#radio4").attr('checked', true);
+                $("#radio5").attr('checked', false);
+                $("#radio6").attr('checked', false);
                 break; 
             }
             case 'style4':
             {
                 $(".heart-shape").addClass("heart-color4");
                 $(".heart-shape").removeClass("heart-color5");
+
+                $("#radio1").attr('checked', false);
+                $("#radio2").attr('checked', false);
+                $("#radio3").attr('checked', false);
+                $("#radio4").attr('checked', false);
+                $("#radio5").attr('checked', true);
+                $("#radio6").attr('checked', false);
                 break; 
             }
             case 'style5':  
             {
                 $(".heart-shape").addClass("heart-color5");
+
+                $("#radio1").attr('checked', false);
+                $("#radio2").attr('checked', false);
+                $("#radio3").attr('checked', false);
+                $("#radio4").attr('checked', false);
+                $("#radio5").attr('checked', false);
+                $("#radio6").attr('checked', true);
                 break; 
             }
             default:

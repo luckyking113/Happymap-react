@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 // import Stepnavigation from './stepnavigation';
 // import './lovemap.css';
 
 
 class Location extends Component { 
+  searchClick(){
+    $(".place-block").toggleClass("focus");
+  }
   render() {
     return (
         <div className="toolbar-content">
@@ -18,7 +22,7 @@ class Location extends Component {
                     <div className="place-content">
                         <div className="subtitle"><i>Find your favorite place</i></div>
                         <div className="search-field">
-                            <input type="search" placeholder="Search for city or country" name="search" />
+                            <input type="search" placeholder="Search for city or country" name="search" onFocus={this.searchClick} />
 
                             <div className="search-submit">
                                 <input type="submit" />
