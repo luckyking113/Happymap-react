@@ -11,7 +11,7 @@ class Posterposition extends Component {
                 <a className="control-zoom-left zoom-in" href="#" title="Zoom in">+ </a>
                 <a className="control-zoom-right zoom-out" href="#" title="Zoom out">- </a>
             </div>
-            <div className="poster  borders-double orientation-portrait size-18x24">
+            <div className="poster borders-double orientation-portrait size-18x24">
                 <div className="poster__frame">
                     <div className="poster-border heart-shape">
                         <div className="poster__paper ">

@@ -29,7 +29,7 @@ class Layout extends Component {
                 <div key={index} className="option-radio">  
                     <input type="radio" id={border.id} name="border" value={border.txt} />                                
                     <label>
-                        <span className="option-radio-img"><img src={border.img} alt="" /></span>
+                        <span className="option-radio-img" onClick={this.drawBorder}><img id={border.id} src={border.img} alt="" /></span>
                         <span className="option-radio-txt">{border.txt} </span>
                     </label>
                 </div>
@@ -52,8 +52,34 @@ class Layout extends Component {
             )
         });
     }
-    sizeControl(e){
-        console.log(e.target.className);
+    drawBorder(e){
+        // console.log(e.target.id);
+        switch (e.target.id){
+            case 'borders__single':
+            {
+                $(".poster").removeClass("borders-double");                
+                $(".poster").removeClass("borders-none");
+                $(".poster").addClass("borders-single");                
+                break;
+            } 
+            case 'borders__double': 
+            {
+                $(".poster").removeClass("borders-single");  
+                $(".poster").addClass("borders-double");                
+                $(".poster").removeClass("borders-none");                
+                break;
+            } 
+            default:
+            {
+                $(".poster").removeClass("borders-single");  
+                $(".poster").removeClass("borders-double");                
+                $(".poster").addClass("borders-none");    
+                break;
+            } 
+
+        }
+    }
+    sizeControl(e){        
         switch (e.target.className){
             case 'class1':
             {
