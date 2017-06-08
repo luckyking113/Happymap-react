@@ -8257,3 +8257,11 @@ input[type="checkbox"]:checked+label span {
 .heart-color5{
 	background-color: rgba(2, 161, 209, 0.3);
 }
+
+.leaflet-control-attribution a {
+	display:none;
+}
+
+/*.leaflet-control{
+	display:none;
+}*/

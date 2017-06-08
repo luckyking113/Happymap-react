@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import './lovemap.css';
-
+import { Map, TileLayer } from 'react-leaflet'
+// import L from 'leaflet';
+//const position = [38.8906, -77.01313]
 
 class Posterposition extends Component { 
+     constructor(props) {
+      super(props);
+		
+      this.state = {
+        position : [38.8906, -77.01313]
+      }
+   }
+	
+   
   render() {
     return (
+        
         <div className="poster-position">
             {/*<h1 style={{marginTop:'300px', marginLeft: '460px'}}>Please set map on this area</h1>*/}
             <div className="control-zoom">
@@ -15,12 +27,22 @@ class Posterposition extends Component {
                 <div className="poster__frame">
                     <div className="poster-border heart-shape">
                         <div className="poster__paper ">
-                            <div className="poster__map__wrap__row">
+                            {/*<div className="poster__map__wrap__row">
                                 <div className="poster__map__wrap">
                                     <div className="poster__map">
+                                        */}
+                                            <Map
+                                                style={{height: "55vh"}}
+                                                center={this.state.position}
+                                                zoom={12}>
+                                                <TileLayer
+                                                    url="https://api.mapbox.com/styles/v1/luckyking113/cj3o7ex8d00402rqm9j1a5xzv/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibHVja3lraW5nMTEzIiwiYSI6ImNqM28xOXd2YzAwMG4yd3A2ejlwazV4ZGoifQ.p953hPmHj3G24x0BVMZqlw"
+                                                    attribution="<attribution>" />
+                                            </Map>
+{/*                                        
                                     </div>
                                 </div>
-                            </div>
+                            </div>*/}
                         </div>
                     </div>
                     <div className="poster__labels">
