@@ -13,19 +13,23 @@ import Checkout from './lovemap/sidebarcontent/checkout';
 import Service from './service/service';
 import Police from './service/police';
 
-export default (
-  <Router history={browserHistory}>
-      <Route path="/" component={Home} />
-        <Route path="/service" component={Service} /> 
-        <Route path="/police" component={Police} /> 
-      <Route path="lovemap" component={Lovemap} >
-        <IndexRoute component={Location} />
-        <Route path="/lovemap/location" component={Location} />     
-        <Route path="/lovemap/customise" component={Customise} /> 
-        <Route path="/lovemap/layout" component={Layout} /> 
-        <Route path="/lovemap/checkout" component={Checkout} /> 
-      </Route>        
-      <Route path="story" component={Story} />     
-      <Route path="contact" component={Contact} />    
-  </Router>
-);
+export default class extends React.Component {
+  render() {
+    return(
+      <Router history={browserHistory}>
+          <Route path="/" component={Home} />
+            <Route path="/service" component={Service} /> 
+            <Route path="/police" component={Police} /> 
+          <Route path="lovemap" component={Lovemap} >
+            <IndexRoute component={Location} />
+            <Route path="/lovemap/location" component={Location} />     
+            <Route path="/lovemap/customise" component={Customise} /> 
+            <Route path="/lovemap/layout" component={Layout} /> 
+            <Route path="/lovemap/checkout" component={Checkout} /> 
+          </Route>        
+          <Route path="story" component={Story} />     
+          <Route path="contact" component={Contact} />    
+      </Router>
+    )
+  }
+}

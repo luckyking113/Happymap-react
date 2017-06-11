@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './lovemap.css';
 import { Map, TileLayer } from 'react-leaflet'
 // import L from 'leaflet';
 //const position = [38.8906, -77.01313]
 
+const mapStateToProps = (state) => {
+    return {
+        location: state.location,
+    }
+}
+
 class Posterposition extends Component { 
-     constructor(props) {
-      super(props);
-		
-      this.state = {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
         position : [38.8906, -77.01313]
-      }
-   }
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
+    }
 	
    
   render() {
@@ -63,4 +74,4 @@ class Posterposition extends Component {
   }
 }
 
-export default Posterposition;
+export default connect(mapStateToProps)(Posterposition)

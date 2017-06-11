@@ -8265,3 +8265,32 @@ input[type="checkbox"]:checked+label span {
 /*.leaflet-control{
 	display:none;
 }*/
+
+.Demo__search-input, .Demo__search-input:focus, .Demo__search-input:active {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    border: honeydew;
+    display: block;
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 2px;
+    outline: none;
+}
+
+.search-field input {
+	height: 54px;
+	border: 0px;
+	font-size: 18px;
+}
+
+.search-field button {
+	height: 100%;
+	background: #fe5b78;
+	border-radius: 0 10px 10px 0;
+	width: 54px;
+	border: 0px;
+}
+
+.search-field button:hover {
+	background: #e02659;
+}

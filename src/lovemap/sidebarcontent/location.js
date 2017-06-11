@@ -2,13 +2,50 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 // import Stepnavigation from './stepnavigation';
 // import './lovemap.css';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { setLocation }   from '../../actions'
+import { connect }      from 'react-redux';
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setLocation: (location, lat, lng) => {
+      dispatch(setLocation(location, lat, lng))
+    }
+  }
+}
 
 class Location extends Component { 
+  constructor(props) {
+    super(props)
+    this.state = { 
+        address: 'San Francisco, CA',
+        locationlatLng: {}
+                
+    }
+    this.onChange = (address) => this.setState({ address })
+  }
+
+  handleFormSubmit = (event) => {
+    event.preventDefault()
+    
+    geocodeByAddress(this.state.address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng =>{
+          console.log(event)
+        this.props.setLocation(event.target.value, latLng.lat, latLng.lng)
+        console.log(latLng);
+      })
+      .catch(error => console.error('Error', error))   
+  }
+
   searchClick(){
     $(".place-block").toggleClass("focus");
   }
   render() {
+    const inputProps = {
+      value: this.state.address,
+      onChange: this.onChange,
+    }
     return (
         <div className="toolbar-content">
             {/*<Stepnavigation />*/}
@@ -22,11 +59,15 @@ class Location extends Component {
                     <div className="place-content">
                         <div className="subtitle"><i>Find your favorite place</i></div>
                         <div className="search-field">
-                            <input type="search" placeholder="Search for city or country" name="search" onFocus={this.searchClick} />
+                            <form onSubmit={this.handleFormSubmit} onFocus={this.searchClick}>
+                                <PlacesAutocomplete inputProps={inputProps} />
+                                <button type="submit" className="search-submit"></button>
+                            </form>
+                            {/*<input type="search" placeholder="Search for city or country" name="search" onFocus={this.searchClick} />
 
                             <div className="search-submit">
                                 <input type="submit" />
-                            </div>
+                            </div>*/}
                         </div>
                     </div>
                 </div>
@@ -48,4 +89,4 @@ class Location extends Component {
 }
 }
 
-export default Location;
+export default connect(null, mapDispatchToProps)(Location)

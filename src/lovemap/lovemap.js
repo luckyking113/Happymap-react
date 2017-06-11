@@ -109,8 +109,7 @@ class Lovemap extends Component {
             </div>
           </div>
           <div className="column-right location-active">
-            <div className="nav-toolbar clearfix">
-                
+            <div className="nav-toolbar clearfix">                
                 <Link to="/lovemap/location" className="nav-toolbar-link nav-location" onClick={()=>this.addLocation()}>
                     <span className="nav-toolbar-icon">
                       <span className="nav-toolbar-icon-static"><img src="../images/location@2x.png" alt="" /></span>
