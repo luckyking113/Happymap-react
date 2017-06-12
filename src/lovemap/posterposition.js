@@ -39,30 +39,31 @@ class Posterposition extends Component {
       console.log("position", this.state.position)
     return (        
         <div className="poster-position">
-            <div className="control-zoom">
+            {/*<div className="control-zoom">
                 <a className="control-zoom-left zoom-in" href="#" title="Zoom in">+ </a>
                 <a className="control-zoom-right zoom-out" href="#" title="Zoom out">- </a>
-            </div>
+            </div>*/}
             <div className="poster borders-double orientation-portrait size-18x24">
+                <Map
+                    style={{height: "55vh"}}
+                    center={[this.state.position.lat, this.state.position.lng]}
+                    zoom={12}>
+                    <TileLayer
+                        url="https://api.mapbox.com/styles/v1/luckyking113/cj3o7ex8d00402rqm9j1a5xzv/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibHVja3lraW5nMTEzIiwiYSI6ImNqM28xOXd2YzAwMG4yd3A2ejlwazV4ZGoifQ.p953hPmHj3G24x0BVMZqlw"
+                        attribution="<attribution>" />
+                </Map>
                 <div className="poster__frame">
+
                     <div className="poster-border heart-shape">
                         <div className="poster__paper ">
-                            {/*<div className="poster__map__wrap__row">
-                                <div className="poster__map__wrap">
-                                    <div className="poster__map">
-                                        */}
-                                            <Map
-                                                style={{height: "55vh"}}
-                                                center={[this.state.position.lat, this.state.position.lng]}
-                                                zoom={12}>
-                                                <TileLayer
-                                                    url="https://api.mapbox.com/styles/v1/luckyking113/cj3o7ex8d00402rqm9j1a5xzv/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibHVja3lraW5nMTEzIiwiYSI6ImNqM28xOXd2YzAwMG4yd3A2ejlwazV4ZGoifQ.p953hPmHj3G24x0BVMZqlw"
-                                                    attribution="<attribution>" />
-                                            </Map>
-{/*                                        
-                                    </div>
-                                </div>
-                            </div>*/}
+                            <div className="poster__map__wrap__row">
+                                {/*<div className="poster__map__wrap">*/}
+                                    {/*<div className="poster__map">*/}                                 
+
+                                        
+                                    {/*</div>*/}
+                                {/*</div>*/}
+                            </div>
                         </div>
                     </div>
                     <div className="poster__labels">

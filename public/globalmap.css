@@ -634,7 +634,7 @@
     background-size: cover
 }
 .poster.orientation-portrait.size-18x24 .poster__map__wrap__row {
-    top: 7em
+    top: -1em
 }
 .poster.orientation-portrait.size-18x24 .poster__labels {
     bottom: 5.7em

@@ -43,6 +43,8 @@ class Lovemap extends Component {
       $(".social-block").css("display", "inherit"); 
       $(".poster-position").removeClass("map-display");  
       $(".step-wrap").removeClass("stepicondisplay"); 
+      $(".poster-position-content").removeClass("poster-position-display"); 
+      $(".checkout-left-block").css("display", "none");  
       
       this.checkOutRemove();
   }
@@ -60,6 +62,8 @@ class Lovemap extends Component {
       $(".social-block").css("display", "inherit");  
       $(".poster-position").removeClass("map-display");  
       $(".step-wrap").removeClass("stepicondisplay"); 
+      $(".poster-position-content").removeClass("poster-position-display"); 
+      $(".checkout-left-block").css("display", "none");  
       this.checkOutRemove();  
   }
 
@@ -76,6 +80,8 @@ class Lovemap extends Component {
       $(".social-block").css("display", "inherit");
       $(".poster-position").removeClass("map-display");  
       $(".step-wrap").removeClass("stepicondisplay"); 
+      $(".poster-position-content").removeClass("poster-position-display"); 
+      $(".checkout-left-block").css("display", "none");  
 
       this.checkOutRemove();  
   }
@@ -91,6 +97,8 @@ class Lovemap extends Component {
       $(".social-block").css("display", "none");      
       $(".poster-position").addClass("map-display");  
       $(".step-wrap").addClass("stepicondisplay");  
+      $(".poster-position-content").addClass("poster-position-display"); 
+      $(".checkout-left-block").css("display", "block");  
   }
   
 
@@ -101,11 +109,15 @@ class Lovemap extends Component {
           <div className="header-wrap">
             <Header />
           </div>
-          <div className="content-wrap">
+          <div className="content-wrap poster-position-content">
             <div className="content-container" style={{height: '930px'}}>
-              <Posterposition />                          
-              <CheckoutLeft />                
+              <Posterposition />                                                     
               <Stepwrap />              
+            </div>
+          </div>
+          <div className="content-wrap">
+            <div className="content-container left-content-container" style={{height: '930px'}}>                                      
+              <CheckoutLeft />                              
             </div>
           </div>
           <div className="column-right location-active">

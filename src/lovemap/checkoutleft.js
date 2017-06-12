@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
+import Posterposition from './posterposition';
 
 
 class Lovemap extends Component {
   render() {
     return (
         <div className="checkout-left-block">
-            {/*<a href="#" className="toggle-link"><span><img src="../images/toggle.png" alt="" /></span></a>
+            <a href="#" className="toggle-link"><span><img src="../images/toggle.png" alt="" /></span></a>
             <div className="checkout-top-txt">
                 <div className="checkout-top-txt-icon"><img src="../images/checkout-icon@2x.png" alt="" />
                 </div>
-                <div className="subtitle">Order Summary </div>               
-                <p><b>Free prioritised shipping world  </b>
+                <div className="subtitle"><i>Order Summary </i></div>               
+                <p><b><i>Free prioritised shipping world  </i></b>
                 </p>
+                <Posterposition />   
             </div>
             <div className="checkout-bg">
                 <div className="order-info">
@@ -24,7 +26,7 @@ class Lovemap extends Component {
                             </p>
                         </div>
                         <div className="map-block">
-
+                            <Posterposition />   
                         </div>
                         <div className="order-info-txt">
                             <div className="order-name subtitle">Paris, France </div>
@@ -57,7 +59,7 @@ class Lovemap extends Component {
                         </div>
                     </div>
                 </div>
-            </div>*/}
+            </div>
         </div>
     )
   }
