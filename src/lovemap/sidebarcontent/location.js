@@ -8,8 +8,8 @@ import { connect }      from 'react-redux';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setLocation: (lat, lng) => {
-      dispatch(setLocation(lat, lng))
+    setLocation: (location, lat, lng) => {
+      dispatch(setLocation(location, lat, lng))
     }
   }
 }
@@ -20,23 +20,20 @@ class Location extends Component {
     this.state = { 
         address: 'Paris, France',
         locationlatLng: {}
-                
+
     }
     this.onChange = (address) => this.setState({address})
   }
 
-  handleFormSubmit = (event) => {
-    //   console.log(event.target)
-    if (event.target && event.target.id === 'button') event.preventDefault()      
-    // console.log("event", event);
-    geocodeByAddress(this.state.address)
-      .then(results => getLatLng(results[0]))
+  handleFormSubmit = (event) => {      
+    if (event.target && event.target.id === 'button') event.preventDefault()          
+    geocodeByAddress(this.state.address) 
+      .then(results => getLatLng(results[0]))      
       .then(latLng =>{        
-        this.props.setLocation(latLng.lat, latLng.lng)        
-        // console.log("latlng" ,latLng.lat)
+        this.props.setLocation(this.state.address, latLng.lat, latLng.lng)        
+        // console.log("latlng" ,latLng.lat)        
       })
-      
-      .catch(error => console.error('Error', error))   
+      .catch(error => console.error('Error', error))
   }
 
   searchClick(){

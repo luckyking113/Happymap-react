@@ -15,22 +15,29 @@ class Posterposition extends Component {
         
         this.state = {
             position : {
+                location: 'Paris, France',
                 lat: 48.856614, 
                 lng: 2.3522219000000177,
-            }
+
+            },
+            cityname: 'Paris',
+            countryname: 'France'
         }
     }
 
     componentWillReceiveProps(nextProps) {
         if (this.props.location !== nextProps.location) {
-            this.setState({ position: nextProps.location })
+            this.setState({ position: nextProps.location });
+            let p = nextProps.location.location.split(', ');
+            this.setState({ cityname: p[0]});
+            this.setState({ countryname: p[p.length - 1]});
         }     
     }
 	
    
   render() {
-    return (
-        
+      console.log("position", this.state.position)
+    return (        
         <div className="poster-position">
             <div className="control-zoom">
                 <a className="control-zoom-left zoom-in" href="#" title="Zoom in">+ </a>
@@ -46,7 +53,7 @@ class Posterposition extends Component {
                                         */}
                                             <Map
                                                 style={{height: "55vh"}}
-                                                center={this.state.position}
+                                                center={[this.state.position.lat, this.state.position.lng]}
                                                 zoom={12}>
                                                 <TileLayer
                                                     url="https://api.mapbox.com/styles/v1/luckyking113/cj3o7ex8d00402rqm9j1a5xzv/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibHVja3lraW5nMTEzIiwiYSI6ImNqM28xOXd2YzAwMG4yd3A2ejlwazV4ZGoifQ.p953hPmHj3G24x0BVMZqlw"
@@ -60,10 +67,10 @@ class Posterposition extends Component {
                     </div>
                     <div className="poster__labels">
                         <h2 className="title">
-                            <span>Where You Stole My </span>
+                            <span>{this.state.cityname}</span>
                         </h2>   
-                        <h3 className="subtitle">
-                            <span>Paris, France </span>
+                        <h3 className="subtitle">                            
+                            <span>{this.state.countryname}</span>
                         </h3>
                         <h4 className="tagline">
                             <span>{this.state.position.lat }°N / {this.state.position.lng }°E </span>
