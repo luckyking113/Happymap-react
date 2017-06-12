@@ -38,7 +38,7 @@ class Lovemap extends Component {
                                 </div>
                                 <div className="order-row clearfix">
                                     <div className="order-label">Shipping </div>
-                                    <div className="order-cost shipping">$ 0 </div>
+                                    <div className="order-cost shipping">$ 50 </div>
                                 </div>
                                 <div className="discount-row clearfix">
                                     <div className="order-label">Discount </div>
@@ -53,7 +53,7 @@ class Lovemap extends Component {
                                 </div>
                                 <div className="order-row order-row-total clearfix">
                                     <div className="order-label">Total </div>
-                                    <div className="order-cost total"></div>
+                                    <div className="order-cost total">$ 50</div>
                                 </div>
                             </div>
                         </div>
