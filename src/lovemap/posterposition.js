@@ -7,7 +7,7 @@ import { Map, TileLayer } from 'react-leaflet'
 
 const mapStateToProps = (state) => {
     return {
-        location: state.location,
+        location: state.location
     }
 }
 
@@ -16,16 +16,23 @@ class Posterposition extends Component {
         super(props);
         
         this.state = {
-        position : [38.8906, -77.01313]
+            position : {
+                lat: 38.8906, 
+                lng: -77.01313
+            }
         }
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
+        if (this.props.location !== nextProps.location) {
+            console.log("AAAA", nextProps.location, this.state.position)
+            this.setState({ position: nextProps.location })
+        }     
     }
 	
    
   render() {
+      console.log('render')
     return (
         
         <div className="poster-position">
@@ -64,7 +71,7 @@ class Posterposition extends Component {
                             <span>Paris, France </span>
                         </h3>
                         <h4 className="tagline">
-                            <span>48.856°N / 2.3522°E </span>
+                            <span>{this.state.position.lat }°N / {this.state.position.lng }°E </span>
                         </h4>
                     </div>
                 </div>

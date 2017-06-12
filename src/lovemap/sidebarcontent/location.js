@@ -8,8 +8,8 @@ import { connect }      from 'react-redux';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setLocation: (location, lat, lng) => {
-      dispatch(setLocation(location, lat, lng))
+    setLocation: (lat, lng) => {
+      dispatch(setLocation(lat, lng))
     }
   }
 }
@@ -26,14 +26,15 @@ class Location extends Component {
   }
 
   handleFormSubmit = (event) => {
-    event.preventDefault()
+      console.log(event.target)
+      if (event.target && event.target.id == 'button') event.preventDefault()
     
     geocodeByAddress(this.state.address)
       .then(results => getLatLng(results[0]))
       .then(latLng =>{
-          console.log(event)
-        this.props.setLocation(event.target.value, latLng.lat, latLng.lng)
-        console.log(latLng);
+        //   console.log(event)
+        this.props.setLocation(latLng.lat, latLng.lng)
+        //console.log(latLng);
       })
       .catch(error => console.error('Error', error))   
   }
@@ -59,9 +60,13 @@ class Location extends Component {
                     <div className="place-content">
                         <div className="subtitle"><i>Find your favorite place</i></div>
                         <div className="search-field">
-                            <form onSubmit={this.handleFormSubmit} onFocus={this.searchClick}>
-                                <PlacesAutocomplete inputProps={inputProps} />
-                                <button type="submit" className="search-submit"></button>
+                            <form onFocus={this.searchClick}>
+                                <PlacesAutocomplete 
+                                id="key"
+                                onEnterKeyDown={this.handleFormSubmit} 
+                                inputProps={inputProps} 
+                                highlightFirstSuggestion={true}/>
+                                <button id='button' onClick={this.handleFormSubmit} className="search-submit"></button>
                             </form>
                             {/*<input type="search" placeholder="Search for city or country" name="search" onFocus={this.searchClick} />
 

@@ -1,7 +1,7 @@
-export const setLocation = (location, lat, lng) => {
+export const setLocation = (lat, lng) => {
     return {
         type: 'SET_LOCATION',
-        location: location,
+        //location: location,
         lat: lat, 
         lng: lng
     }
