@@ -22,19 +22,20 @@ class Location extends Component {
         locationlatLng: {}
                 
     }
-    this.onChange = (address) => this.setState({ address })
+    this.onChange = (address) => this.setState({address})
   }
 
   handleFormSubmit = (event) => {
     //   console.log(event.target)
-      if (event.target && event.target.id === 'button') event.preventDefault()      
-    
+    if (event.target && event.target.id === 'button') event.preventDefault()      
+    // console.log("event", event);
     geocodeByAddress(this.state.address)
       .then(results => getLatLng(results[0]))
       .then(latLng =>{        
-        this.props.setLocation(latLng.lat, latLng.lng)
-        // console.log("Lating", latLng);
+        this.props.setLocation(latLng.lat, latLng.lng)        
+        // console.log("latlng" ,latLng.lat)
       })
+      
       .catch(error => console.error('Error', error))   
   }
 

@@ -16,7 +16,7 @@ class Posterposition extends Component {
         this.state = {
             position : {
                 lat: 48.856614, 
-                lng: 2.3522219000000177
+                lng: 2.3522219000000177,
             }
         }
     }
