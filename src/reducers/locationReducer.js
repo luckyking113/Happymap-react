@@ -13,6 +13,7 @@ export default (state = initialState, action) => {
                 lat: action.lat,
                 lng: action.lng
             }
+        default: break;
     }
     return state
 }

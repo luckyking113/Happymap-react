@@ -34,9 +34,9 @@ class Customise extends Component {
         });
     }
 
-    radioColor(e){
-        console.log(e.target.id);
-    }
+    // radioColor(e){
+    //     console.log(e.target.id);
+    // }
     mapcolor(e){
         switch (e.target.className){
             case 'style0':

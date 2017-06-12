@@ -128,13 +128,13 @@ class Layout extends Component {
     portrait(){
         $(".poster").addClass("orientation-portrait");
         $(".poster").removeClass("orientation-landscape");         
-        console.log("portrait");
+        // console.log("portrait");
     }
     landscape(){
         $(".poster").addClass("orientation-landscape"); 
         $(".poster").removeClass("orientation-portrait");
         // $(".poster-border").addClass("orientation-landscape");
-        console.log("landscape");
+        // console.log("landscape");
     }
     render() {
         return (

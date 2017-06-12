@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './lovemap.css';
-import { Map, TileLayer } from 'react-leaflet'
-// import L from 'leaflet';
-//const position = [38.8906, -77.01313]
+import { Map, TileLayer } from 'react-leaflet';
 
 const mapStateToProps = (state) => {
     return {
@@ -17,26 +15,23 @@ class Posterposition extends Component {
         
         this.state = {
             position : {
-                lat: 38.8906, 
-                lng: -77.01313
+                lat: 48.856614, 
+                lng: 2.3522219000000177
             }
         }
     }
 
     componentWillReceiveProps(nextProps) {
         if (this.props.location !== nextProps.location) {
-            console.log("AAAA", nextProps.location, this.state.position)
             this.setState({ position: nextProps.location })
         }     
     }
 	
    
   render() {
-      console.log('render')
     return (
         
         <div className="poster-position">
-            {/*<h1 style={{marginTop:'300px', marginLeft: '460px'}}>Please set map on this area</h1>*/}
             <div className="control-zoom">
                 <a className="control-zoom-left zoom-in" href="#" title="Zoom in">+ </a>
                 <a className="control-zoom-right zoom-out" href="#" title="Zoom out">- </a>
@@ -66,7 +61,7 @@ class Posterposition extends Component {
                     <div className="poster__labels">
                         <h2 className="title">
                             <span>Where You Stole My </span>
-                        </h2>
+                        </h2>   
                         <h3 className="subtitle">
                             <span>Paris, France </span>
                         </h3>

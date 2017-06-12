@@ -18,7 +18,7 @@ class Location extends Component {
   constructor(props) {
     super(props)
     this.state = { 
-        address: 'San Francisco, CA',
+        address: 'Paris, France',
         locationlatLng: {}
                 
     }
@@ -26,15 +26,14 @@ class Location extends Component {
   }
 
   handleFormSubmit = (event) => {
-      console.log(event.target)
-      if (event.target && event.target.id == 'button') event.preventDefault()
+    //   console.log(event.target)
+      if (event.target && event.target.id === 'button') event.preventDefault()      
     
     geocodeByAddress(this.state.address)
       .then(results => getLatLng(results[0]))
-      .then(latLng =>{
-        //   console.log(event)
+      .then(latLng =>{        
         this.props.setLocation(latLng.lat, latLng.lng)
-        //console.log(latLng);
+        // console.log("Lating", latLng);
       })
       .catch(error => console.error('Error', error))   
   }
