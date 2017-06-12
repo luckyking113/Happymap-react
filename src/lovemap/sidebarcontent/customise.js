@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import _ from 'lodash';
 import '../lovemap.css';
 import $ from 'jquery';
 
+const mapStateToProps = (state) => {
+    return {
+        location: state.location
+    }
+}
 
 class Customise extends Component { 
-    constructor() {
-        super();		
+    constructor(props) {
+        super(props);		
         this.state = {
             data: [
                 {"id":"radio1", "stylename": "style0", "imgsrc":"1.png"}, 
@@ -15,8 +21,22 @@ class Customise extends Component {
                 {"id":"radio4", "stylename": "style3", "imgsrc":"4.png"},
                 {"id":"radio5", "stylename": "style4", "imgsrc":"5.png"},
                 {"id":"radio6", "stylename": "style5", "imgsrc":"6.png"}
-            ]
+            ],
+            position: this.props.location,
+            address: this.props.location.location,
+            cityname: '',
+            countryname: '',
+            lat: '',
+            lng: ''
         }
+    }
+
+    componentWillMount() {        
+        this.setState({ lat: this.state.position.lat});
+        this.setState({ lng: this.state.position.lng});
+        let p = this.state.address.split(', ');
+        this.setState({ cityname: p[0]});
+        this.setState({ countryname: p[p.length - 1]});        
     }
 
     colorRadio(){
@@ -151,16 +171,17 @@ class Customise extends Component {
                             <div className="subtitle">Text Customisation </div>
                             <div className="input-row input-row-title">
                                 <label>Title </label>
-                                <input type="text" name="title" />
+                                {/*<label></label>*/}
+                                <input type="text" name="title" defaultValue={this.state.cityname} />
                             </div>
                             <div className="input-row input-row-subtitle">
                                 <label>Subtitle </label>
-                                <input type="text" name="subtitle" />
+                                <input type="text" name="subtitle" defaultValue={this.state.countryname} />
                             </div>
                             <div className="input-row input-row-tagline">
                                 <label>Tagline </label>
                                 {/*<input type="text" name="tagline" value="" autocomplete="off" />*/}
-                                <input type="text" name="tagline"/>
+                                <input type="text" name="tagline" defaultValue={`${this.state.lat}°N / ${this.state.lng}°W`}  />
                             </div>
                         </div>
                     </div>
@@ -168,5 +189,5 @@ class Customise extends Component {
         )
     }
 }
-
-    export default Customise;
+export default connect(mapStateToProps)(Customise)
+    

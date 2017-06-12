@@ -14,19 +14,26 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        location: state.location
+    }
+}
+
 class Location extends Component { 
   constructor(props) {
     super(props)
     this.state = { 
-        address: 'Paris, France',
+        address: this.props.location.location,
         locationlatLng: {}
-
     }
+    
     this.onChange = (address) => this.setState({address})
   }
 
   handleFormSubmit = (event) => {      
-    if (event.target && event.target.id === 'button') event.preventDefault()          
+    if (event.target && event.target.id === 'button') event.preventDefault();
+    
     geocodeByAddress(this.state.address) 
       .then(results => getLatLng(results[0]))      
       .then(latLng =>{        
@@ -39,10 +46,11 @@ class Location extends Component {
   searchClick(){
     $(".place-block").toggleClass("focus");
   }
+
   render() {
     const inputProps = {
-      value: this.state.address,
-      onChange: this.onChange,
+        value: this.state.address,
+        onChange: this.onChange,
     }
     return (
         <div className="toolbar-content">
@@ -91,4 +99,4 @@ class Location extends Component {
 }
 }
 
-export default connect(null, mapDispatchToProps)(Location)
+export default connect(mapStateToProps, mapDispatchToProps)(Location)

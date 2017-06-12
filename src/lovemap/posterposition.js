@@ -73,7 +73,7 @@ class Posterposition extends Component {
                             <span>{this.state.countryname}</span>
                         </h3>
                         <h4 className="tagline">
-                            <span>{this.state.position.lat }°N / {this.state.position.lng }°E </span>
+                            <span>{this.state.position.lat }°N / {this.state.position.lng }°W</span>
                         </h4>
                     </div>
                 </div>
