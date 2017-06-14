@@ -7,17 +7,13 @@ import Posterposition from './posterposition';
 import Stepwrap from './stepwrap';
 import Mapfooter from './sidebarcontent/mapfooter';
 import CheckoutLeft from './checkoutleft';
+import CheckoutLeftMobile from './checkoutleftmobile';
 import './lovemap.css';
 
 class Lovemap extends Component {
   componentDidMount() {      
       this.addLocation();
-  }
-
-//     componentWillMount() {
-//       console.log('Component WILL MOUNT!')
-//    }
-  
+  }  
   checkOutEvent = () => {        
       $(".column-right").addClass("column-width");
       $(".nav-toolbar").addClass("nav-toolbar-class");
@@ -117,7 +113,10 @@ class Lovemap extends Component {
           </div>
           <div className="content-wrap">
             <div className="content-container left-content-container" style={{height: '930px'}}>                                      
-              <CheckoutLeft />                              
+              <CheckoutLeft />
+              <div className="checkoutleftmobile">
+                <CheckoutLeftMobile />
+              </div>                        
             </div>
           </div>
           <div className="column-right location-active">

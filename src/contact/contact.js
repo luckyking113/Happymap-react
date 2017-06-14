@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import Header from '../header/header';
+import $ from 'jquery';
 
 class Contact extends Component {
+  componentDidMount() {
+    $('.mobile-link-menu').click(function(){        
+        $("body").toggleClass("menu-open");
+    });   
+    $('.createMap').click(function(){        
+        // $("body").removeClass("menu-open");
+        $("body").toggleClass("menu-open");
+    }); 
+  }
   render() {
     return (
       <div className="page-wrap contacts-wrap">

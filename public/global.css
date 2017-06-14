@@ -8217,6 +8217,7 @@ input[type="checkbox"]:checked+label span {
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
   background-color: rgba(245,120,120, 0.3); 
+  border: 0px !important;
 }
 .heart-shape:before,
 .heart-shape:after{
@@ -8228,7 +8229,7 @@ input[type="checkbox"]:checked+label span {
   -moz-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
-  background-color: rgba(245,97,97, 1); 
+  /*background-color: rgba(245,97,97, 1); */
 }
 .heart-shape:before{
   bottom: 0px;
@@ -8321,4 +8322,131 @@ input[type="checkbox"]:checked+label span {
 	width: 23%;
 	margin-top: 74px;
     padding: 20px;
+}
+
+.leaflet-top, .leaflet-bottom{
+	display: none;
+}
+
+.checkoutleftmobile{
+	display: none;
+}
+
+/*#PlacesAutocomplete__root div{
+	background:red;
+	z-index: 1000;
+}
+#PlacesAutocomplete__root {
+	background:red;
+	z-index: 1000;
+}*/
+/*#PlacesAutocomplete__autocomplete-container{
+	z-index: 1000;
+	background: red;
+}*/
+
+@media (max-width: 991px){
+	.left-content-container{
+		/*z-index: -1;*/
+		height: 100% !important;
+	}
+	.checkoutleftmobile-991px{
+		display: inherit;
+	}
+	.checkoutleftmobile .checkout-content{
+		margin-bottom: 300px;		
+	}
+	.mobile-desplay{
+		display: none;
+	}
+	.social-block{
+		display: none !important;
+	}
+	.content-container{
+		width: 100%;
+	}
+	.column-width {
+		width: 425px;
+		z-index: 1000;
+	}
+	.checkoutdisplay {
+		display: none;
+	}
+	#checkouttoolbar {
+		height: 350px;
+	}
+
+	#checkouttoolbar.checkout-left-block {
+		display: inherit;
+	}
+	.mobile .checkout-top-txt{
+		display: inherit;
+	}
+	#checkouttoolbar .poster-position{
+		display: none;
+	}
+	#checkouttoolbar .checkout-left-block{
+		display: inherit;
+	}
+	#checkouttoolbar .order-info-txt {
+		width: 100%;
+		padding: 0 30px;
+	}
+
+	.mobile .subtitle {
+		margin-top: 60px;
+	}
+	.mobile .subtitle, .mobile p{
+		text-align: center;
+	}
+	.displayCheckout{
+		height: 165px !important;
+	}
+}
+
+@media (max-width: 650px){
+	.poster-position{
+		width: 85%;
+	}
+
+	.poster {
+		width: 100% !important;
+		height: auto !important;
+	}
+	.poster-position{
+		top: 38% !important;
+	}
+}
+
+@media (max-width: 485px){
+	.poster {
+		height: auto !important;
+	}
+	.poster__labels .title span{
+		font-size: 32px !important;
+	}
+	.poster__labels .subtitle span{
+		font-size: 16px !important;
+	}
+	.poster__labels .tagline span{
+		font-size: 16px !important;
+	}
+	.poster__labels{
+		bottom: 10% !important;
+	}
+}
+
+@media (max-width: 341px){
+	.poster__labels .title span{
+		font-size: 27px !important;
+	}
+	.poster__labels .subtitle span{
+		font-size: 14px !important;
+	}
+	.poster__labels .tagline span{
+		font-size: 14px !important;
+	}
+	.poster__labels{
+		bottom: 13% !important;
+	}
 }

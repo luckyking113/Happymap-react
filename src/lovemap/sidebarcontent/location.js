@@ -31,14 +31,17 @@ class Location extends Component {
     this.onChange = (address) => this.setState({address})
   }
 
+  componentWillMount() {        
+    $(".checkoutleftmobile").removeClass("checkoutleftmobile-991px");   
+  }  
+
   handleFormSubmit = (event) => {      
     if (event.target && event.target.id === 'button') event.preventDefault();
     
     geocodeByAddress(this.state.address) 
       .then(results => getLatLng(results[0]))      
       .then(latLng =>{        
-        this.props.setLocation(this.state.address, latLng.lat, latLng.lng)        
-        // console.log("latlng" ,latLng.lat)        
+        this.props.setLocation(this.state.address, latLng.lat, latLng.lng)                      
       })
       .catch(error => console.error('Error', error))
   }
@@ -47,6 +50,9 @@ class Location extends Component {
     $(".place-block").toggleClass("focus");
   }
 
+  mobileDesplay(){
+    $(".toolbar-content").toggleClass("mobile-desplay");    
+  }
   render() {
     const inputProps = {
         value: this.state.address,
@@ -56,7 +62,7 @@ class Location extends Component {
         <div className="toolbar-content">
             {/*<Stepnavigation />*/}
             <div id="tab-location" className="toolbar-container active">
-                <a href="#" className="toggle-link"><span><img src="../images/toggle.png" alt="" /></span></a>
+                <a href="#" className="toggle-link" onClick={this.mobileDesplay}><span><img src="../images/toggle.png" alt="" /></span></a>
                 <div className="place-block">
                     <div className="place-bg"><img src="../images/place-bg.png" alt="" />
                         <div className="place-bg-hover"><img src="../images/place-bg-hover.png" alt="" />

@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
 import $ from "jquery";
+import CheckoutLeft from '../checkoutleft';
 // import Stepnavigation from './stepnavigation';
 // import './lovemap.css';
 
 
 class Checkout extends Component { 
+    componentDidMount(){
+        $(".desktop").addClass("checkoutdisplay");
+        $(".checkoutleftmobile").addClass("checkoutleftmobile-991px");        
+    }
     checkBoxAction = () => {  
         $(".input-none").toggleClass("dropdowninput");
     }
     checkwrapAction = () => {  
         $(".input-none1").toggleClass("dropdowninput");
     }
+    displayCheckout(){
+        $("#checkouttoolbar").toggleClass("displayCheckout");
+    }
+
     render() {
         return (
-            <div className="toolbar-content">
+            <div id="checkouttoolbar" className="toolbar-content">
                 {/*<Stepnavigation />*/}
-                <div id="tab-checkout" className="toolbar-container">
+                <div id="tab-checkout" className="toolbar-container desktop">
                     <div className="checkout-content">
                         <div className="checkout-content-title-mobile">Checkout </div>
                         <div className="checkout-form">
@@ -155,7 +164,11 @@ class Checkout extends Component {
                             </form>
                         </div>
                     </div>
-                </div>                    
+                </div>    
+                <div className="checkout-content mobile">
+                    <a href="#" className="toggle-link" onClick={this.displayCheckout}><span><img src="../images/toggle.png" alt="" /></span></a>
+                    <CheckoutLeft />      
+                </div>                
             </div>
         )
     }

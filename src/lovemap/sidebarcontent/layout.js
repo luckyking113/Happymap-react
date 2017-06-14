@@ -22,7 +22,9 @@ class Layout extends Component {
             ]
         }
     }
-
+    componentWillMount() {        
+        $(".checkoutleftmobile").removeClass("checkoutleftmobile-991px");   
+    }   
     bordersControl(){
         return _.map(this.state.borders, (border, index) => {
             return(
@@ -44,7 +46,7 @@ class Layout extends Component {
                     <label>
                         <span className="option-radio-img" onClick={this.sizeControl}>
                             <img className={datum.targetclass} src="../images/size.png" alt="" />
-                            <span className="option-size-txt">{datum.txt} </span>
+                            <span className="option-size-txt" onClick={this.sizeControl}>{datum.txt} </span>
                         </span>
                         <span className="option-radio-txt">{datum.cost} </span>
                     </label>
@@ -52,8 +54,7 @@ class Layout extends Component {
             )
         });
     }
-    drawBorder(e){
-        // console.log(e.target.id);
+    drawBorder(e){        
         switch (e.target.id){
             case 'borders__single':
             {
@@ -61,9 +62,9 @@ class Layout extends Component {
                 $(".poster").removeClass("borders-none");
                 $(".poster").addClass("borders-single");   
 
-                $("#borders__single").attr('checked', true);
                 $("#borders__double").attr('checked', false);
-                $("#borders__none").attr('checked', false);             
+                $("#borders__none").attr('checked', false);   
+                $("#borders__single").attr('checked', true);          
                 break;
             } 
             case 'borders__double': 
@@ -72,8 +73,8 @@ class Layout extends Component {
                 $(".poster").addClass("borders-double");                
                 $(".poster").removeClass("borders-none"); 
                 $("#borders__single").attr('checked', false);
-                $("#borders__double").attr('checked', true);
-                $("#borders__none").attr('checked', false);                  
+                $("#borders__none").attr('checked', false);  
+                $("#borders__double").attr('checked', true);                
                 break;
             } 
             default:
@@ -96,9 +97,10 @@ class Layout extends Component {
                 $(".poster").addClass("size-8x10");
                 $(".poster").removeClass("size-12x16");
                 $(".poster").removeClass("size-18x24");
-                $("#size__8x10").attr('checked', true);
+                                
                 $("#size__12x16").attr('checked', false);
                 $("#size__18x24").attr('checked', false); 
+                $("#size__8x10").attr('checked', true);
                 break;
             } 
             case 'class2': 
@@ -107,8 +109,9 @@ class Layout extends Component {
                 $(".poster").addClass("size-12x16");
                 $(".poster").removeClass("size-18x24");
                 $("#size__8x10").attr('checked', false);
-                $("#size__12x16").attr('checked', true);
                 $("#size__18x24").attr('checked', false); 
+                $("#size__12x16").attr('checked', true);
+       
                 break;
             } 
             case 'class3':
@@ -126,22 +129,27 @@ class Layout extends Component {
         }
     }
     portrait(){
-        $(".poster").addClass("orientation-portrait");
-        $(".poster").removeClass("orientation-landscape");         
-        // console.log("portrait");
+        $(".poster").removeClass("orientation-landscape");  
+        $(".poster").addClass("orientation-portrait");        
+        $("#orientation__landscape").attr('checked', false);   
+        $("#orientation__portrait").attr('checked', true);               
     }
     landscape(){
-        $(".poster").addClass("orientation-landscape"); 
-        $(".poster").removeClass("orientation-portrait");
-        // $(".poster-border").addClass("orientation-landscape");
-        // console.log("landscape");
+        // $(".poster").removeClass("orientation-portrait");
+        $(".poster").addClass("orientation-landscape");     
+        $("#orientation__portrait").attr('checked', false);     
+        $("#orientation__landscape").attr('checked', true);      
+        // $(".poster-border").addClass("orientation-landscape");        
+    }
+    mobileDesplay(){
+        $(".toolbar-content").toggleClass("mobile-desplay");        
     }
     render() {
         return (
             <div className="toolbar-content">
                 {/*<Stepnavigation />*/}
                 <div id="tab-layout" className="toolbar-container">
-                    <a href="#" className="toggle-link"><span><img src="../images/toggle.png" alt="" /></span></a>
+                    <a href="#" className="toggle-link" onClick={this.mobileDesplay}><span><img src="../images/toggle.png" alt="" /></span></a>
                     <div className="option-block">
                         <div className="subtitle">Borders </div>
                         <div className="option-radio-wrap">

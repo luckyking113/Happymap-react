@@ -36,9 +36,9 @@ class Customise extends Component {
         this.setState({ lng: this.state.position.lng});
         let p = this.state.address.split(', ');
         this.setState({ cityname: p[0]});
-        this.setState({ countryname: p[p.length - 1]});        
-    }
-
+        this.setState({ countryname: p[p.length - 1]});     
+        $(".checkoutleftmobile").removeClass("checkoutleftmobile-991px");   
+    }    
     colorRadio(){
         return _.map(this.state.data, (datum, index) => {            
             return(
@@ -53,75 +53,69 @@ class Customise extends Component {
             )
         });
     }
-
-    // radioColor(e){
-    //     console.log(e.target.id);
-    // }
     mapcolor(e){
         switch (e.target.className){
             case 'style0':
             {
                 // $("span").css("border-color","#93d4f7");
-                $(".heart-shape").addClass("heart-color0"); 
                 $(".heart-shape").removeClass("heart-color1");
                 $(".heart-shape").removeClass("heart-color2");
                 $(".heart-shape").removeClass("heart-color3");
                 $(".heart-shape").removeClass("heart-color4");
                 $(".heart-shape").removeClass("heart-color5");
+                $(".heart-shape").addClass("heart-color0"); 
 
-                $("#radio1").attr('checked', true);
                 $("#radio2").attr('checked', false);
                 $("#radio3").attr('checked', false);
                 $("#radio4").attr('checked', false);
                 $("#radio5").attr('checked', false);
                 $("#radio6").attr('checked', false);
-
-
-
+                $("#radio1").attr('checked', true);
                 break;
             }
             case 'style1':
-            {                       
-                $(".heart-shape").addClass("heart-color1");
+            {           
                 $(".heart-shape").removeClass("heart-color2");
                 $(".heart-shape").removeClass("heart-color3");
                 $(".heart-shape").removeClass("heart-color4");
-                $(".heart-shape").removeClass("heart-color5");  
+                $(".heart-shape").removeClass("heart-color5");              
+                $(".heart-shape").addClass("heart-color1");
                 
                 $("#radio1").attr('checked', false);
-                $("#radio2").attr('checked', true);
                 $("#radio3").attr('checked', false);
                 $("#radio4").attr('checked', false);
                 $("#radio5").attr('checked', false);
                 $("#radio6").attr('checked', false);
+                $("#radio2").attr('checked', true);
                 break;
             }
             case 'style2':
             {
-                $(".heart-shape").addClass("heart-color2"); 
                 $(".heart-shape").removeClass("heart-color3");
                 $(".heart-shape").removeClass("heart-color4");
                 $(".heart-shape").removeClass("heart-color5");  
-                $("#radio1").attr('checked', false);
-                $("#radio2").attr('checked', false);
-                $("#radio3").attr('checked', true);
+                $(".heart-shape").addClass("heart-color2"); 
+
                 $("#radio4").attr('checked', false);
                 $("#radio5").attr('checked', false);
                 $("#radio6").attr('checked', false);
+                $("#radio1").attr('checked', false);
+                $("#radio2").attr('checked', false);
+                $("#radio3").attr('checked', true);
                 break;
             }
             case 'style3':
             {
-                $(".heart-shape").addClass("heart-color3");
                 $(".heart-shape").removeClass("heart-color4");
                 $(".heart-shape").removeClass("heart-color5");  
+                $(".heart-shape").addClass("heart-color3");
 
+                $("#radio5").attr('checked', false);
+                $("#radio6").attr('checked', false);
                 $("#radio1").attr('checked', false);
                 $("#radio2").attr('checked', false);
                 $("#radio3").attr('checked', false);
                 $("#radio4").attr('checked', true);
-                $("#radio5").attr('checked', false);
-                $("#radio6").attr('checked', false);
                 break; 
             }
             case 'style4':
@@ -155,12 +149,15 @@ class Customise extends Component {
           
         }
     }
+    mobileDesplay(){
+        $(".toolbar-content").toggleClass("mobile-desplay");     
+    }
     render() {
         return (    
             <div className="toolbar-content">
                 {/*<Stepnavigation />*/}
                     <div id="tab-customize" className="toolbar-container">
-                        <a href="#" className="toggle-link"><span><img src="../images/toggle.png" alt="" /></span></a>
+                        <a href="#" className="toggle-link" onClick={this.mobileDesplay}><span><img src="../images/toggle.png" alt="" /></span></a>
                         <div className="color-block">
                             <div className="subtitle">Choose Your Color </div>
                             <div className="color-radio-wrap">

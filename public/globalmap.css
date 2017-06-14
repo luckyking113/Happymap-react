@@ -768,7 +768,8 @@
     padding-bottom: 80%
 }
 .poster.orientation-landscape.size-8x10 .poster-border {
-    width: 3000px
+    /*width: 3000px*/
+    width: 100%;
 }
 .poster.orientation-landscape.size-8x10 .poster__paper:before {
     background: url("../images/map-bg/landscape_small_8x10.png") no-repeat center;
@@ -827,7 +828,8 @@
     padding-bottom: 75%
 }
 .poster.orientation-landscape.size-18x24 .poster-border {
-    width: 3600px
+    /*width: 3600px*/
+    width: 100%;
 }
 .poster.orientation-landscape.size-18x24 .poster__paper:before {
     background: url("../images/map-bg/landscape_small_18x24.png") no-repeat center;
@@ -870,7 +872,8 @@
     padding-bottom: 75%
 }
 .poster.orientation-landscape.size-12x16 .poster-border {
-    width: 3600px
+    /*width: 3600px*/
+    width: 100%;
 }
 .poster.orientation-landscape.size-12x16 .poster__paper:before {
     background: url("../images/map-bg/landscape_small_18x24.png") no-repeat center;
